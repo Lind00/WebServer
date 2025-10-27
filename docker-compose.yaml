@@ -9,7 +9,7 @@ services:
     restart: unless-stopped
 
   jenkins:
-    image: docker/jenkins-lts-dind
+    image: jenkins/jenkins:lts-jdk17
     container_name: jenkins
     user: root
     ports:
