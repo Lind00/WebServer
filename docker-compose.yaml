@@ -7,3 +7,15 @@ services:
     volumes:
       - ./website:/usr/share/nginx/html:ro
     restart: unless-stopped
+
+  jenkins:
+    image: jenkins/jenkins:lts-jdk17
+    container_name: jenkins
+    user: root
+    ports:
+      - "8081:8080"    # Jenkins UI
+      - "50000:50000"  # Jenkins agent
+    volumes:
+      - ./jenkins_home:/var/jenkins_home
+      -  /var/run/docker.sock:/var/run/docker.sock  # allow Jenkins to run Docker commands
+    restart: unless-stopped
