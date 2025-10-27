@@ -1,0 +1,9 @@
+services:
+  webserver:
+    image: nginx:alpine
+    container_name: my-webserver
+    ports:
+      - "8080:80"
+    volumes:
+      - ./website:/usr/share/nginx/html:ro
+    restart: unless-stopped
