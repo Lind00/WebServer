@@ -9,7 +9,8 @@ services:
     restart: unless-stopped
 
   jenkins:
-    image: jenkins/jenkins:lts-jdk17
+    build:
+      context: ./jenkins # Folder with the Dockerfile
     container_name: jenkins
     user: root
     ports:
